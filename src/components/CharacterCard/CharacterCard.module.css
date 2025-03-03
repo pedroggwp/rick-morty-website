@@ -1,18 +1,56 @@
 .container {
-    display: flex;
-    border: 1px solid red;
-    width: 40%;
-    gap: 10%;
-    height: 200px;
-    background-color: var(--card-background-color);
-    box-sizing: border-box;
-    align-items: center;
+  display: flex;
+  gap: 1.5rem;
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  max-width: 400px;
 }
 
-.info {
-    background-color: aqua;
+.imageContainer {
+  flex-shrink: 0;
 }
 
 .img {
-    width: 100px;
+  width: 120px;
+  height: 120px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.info {
+  flex-grow: 1;
+}
+
+.name {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.species {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.detailItem {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.label {
+  font-weight: 600;
+  color: #444;
+}
+
+.value {
+  color: #666;
 }
