@@ -3,6 +3,9 @@
   --information-color: #FFFFFF;
   --background-color: #272B33;
   --card-background-color: #212830;
+  --font-small: 20px;
+  --font-medium: 24px;
+  --font-big: 40px;
 }
 
 body {
