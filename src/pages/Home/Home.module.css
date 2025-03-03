@@ -1,0 +1,29 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 3rem 0rem 3rem 3rem;
+}
+
+.logoTitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hubTitle {
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: var(--font-big);
+}
+
+.description {
+    color: var(--text-color);
+    font-size: var(--font-medium);
+}
+
+.leftContent {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,4 +1,4 @@
-.headerContainer{
+.container {
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -8,10 +8,9 @@
     height: 200px;
     box-sizing: border-box;
     height: 105px; 
-
 }
 
-.headerContainer::before {
+.container::before {
     content: "";
     position: absolute;
     top: 0;
@@ -37,7 +36,6 @@ ul {
     margin-right: 20px;
     gap: 100px;
     width: 50%;
-  
 }
 
 li {
@@ -54,12 +52,11 @@ a {
     text-decoration: none;
     outline: none;
     color: var(--text-color);
-    font-size: 1.5rem;
+    font-size: var(--font-medium);
 }
 
 a:hover {
     color: #A7CFE7;
-    
 }
 
 a:focus {
@@ -67,13 +64,12 @@ a:focus {
     outline: none;
 }
 
-.homeButton { 
+.btn { 
     cursor: pointer;
     transition: transform 0.5s ease-in-out; 
-
 }   
 
-.homeButton:hover {
+.btn:hover {
     animation: spin 0.5s linear infinite ;
 }
 
