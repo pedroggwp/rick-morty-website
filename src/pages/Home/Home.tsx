@@ -1,6 +1,6 @@
 import Header from "../../components/Header/Header";
 import OficialLogo from "../../assets/rick_morty_oficial_logo.svg";
-import RickMortyPortal from "../../assets/Vector.png";
+import RickMortyPortal from "../../assets/rick-portal.png";
 import styles from "./Home.module.css";
 
 export default function Home() {
