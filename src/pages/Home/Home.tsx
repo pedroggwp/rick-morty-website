@@ -2,6 +2,7 @@ import Header from "../../components/Header/Header";
 import OficialLogo from "../../assets/rick_morty_oficial_logo.svg";
 import RickMortyPortal from "../../assets/rick-portal.png";
 import styles from "./Home.module.css";
+import CharacterCard from "../../components/CharacterCard/CharacterCard";
 
 export default function Home() {
   return (
@@ -36,6 +37,14 @@ export default function Home() {
           />
         </div>
       </div>
+
+      <CharacterCard
+        name="Rick Sanchez"
+        specie="Humano"
+        gender="Masculino"
+        status="Vivo"
+        imageUrl="https://rickandmortyapi.com/api/character/avatar/385.jpeg"
+      />
     </>
   );
 }

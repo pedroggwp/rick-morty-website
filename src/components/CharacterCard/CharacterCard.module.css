@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    border: 1px solid red;
+    width: 40%;
+    gap: 10%;
+    height: 200px;
+    background-color: var(--card-background-color);
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.info {
+    background-color: aqua;
+}
+
+.img {
+    width: 100px;
+}
