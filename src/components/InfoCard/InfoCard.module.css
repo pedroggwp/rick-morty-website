@@ -1,0 +1,30 @@
+.episodesCard {
+  background-color: #212830;
+  border-radius: 8px;
+  padding: 1rem;
+  color: var(--text-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.episodesCard h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.episodesCard p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.episodesCard a {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.episodesCard a:hover {
+  text-decoration: underline;
+}

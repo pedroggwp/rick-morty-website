@@ -1,0 +1,21 @@
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0rem 0rem 3rem;
+}
+
+.leftSide {
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}
+
+.sectionTitle h1 {
+  color: var(--text-color);
+}
+
+.arrowIcon {
+  margin-right: 5em;
+  cursor: pointer;
+}

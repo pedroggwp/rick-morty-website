@@ -1,23 +1,32 @@
 import styles from "./Header.module.css"
 import  Logo  from "../../assets/logo.svg"
+import { Link } from "react-router-dom";
+import {
+  HOME_PATH,
+  CHARACTER_PATH,
+  PLACES_PATH,
+  EPISODES_PATH,
+} from "../../constants/paths";
 
 export default function Header() {
     return (
       <header className={styles.container}>
         <div className={styles.btn}>
-          <img src={Logo} alt="Logo do site" />
+          <Link to={HOME_PATH}>
+            <img src={Logo} alt="Logo do site" />
+          </Link>
         </div>
 
         <div>
           <ul>
             <li>
-              <a href="#">Personagens</a>
+              <Link to={CHARACTER_PATH}>Personagens</Link>
             </li>
             <li>
-              <a href="#">Episódios</a>
+              <Link to={EPISODES_PATH}>Episódios</Link>
             </li>
             <li>
-              <a href="#">Lugares</a>
+              <Link to={PLACES_PATH}>Lugares</Link>
             </li>
           </ul>
         </div>

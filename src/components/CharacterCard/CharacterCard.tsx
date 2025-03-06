@@ -1,20 +1,14 @@
 import styles from "./CharacterCard.module.css";
 
-interface CharacterParams {
-  name: string,
-  species: string,
-  gender: string,
-  status: string,
-  imageUrl: string,
+type Props = {
+  name: string;
+  species: string;
+  gender: string;
+  status: string;
+  imageUrl: string;
 }
 
-const CharacterCard: React.FC<CharacterParams> = ({
-  name,
-  species,
-  gender,
-  status,
-  imageUrl,
-}) => {
+export const CharacterCard = ({ name, species, gender, status, imageUrl }: Props) => {
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
@@ -38,7 +32,5 @@ const CharacterCard: React.FC<CharacterParams> = ({
         </div>
       </div>
     </div>
-  );
-};
-
-export default CharacterCard;
+  )
+}
