@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  gap: 1.5rem;
+  background: #212830;
+  border-radius: 20px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  max-width: 500px;
+}
+
+.imageContainer {
+  flex-shrink: 0;
+}
+
+.img {
+  width: 180px;
+  height: 180px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.info {
+  flex-grow: 1;
+}
+
+.name {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+.species {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-weight: 600;
+  color: #6D7886;
+}
+
+.value {
+  color: var(--text-color);
+}
