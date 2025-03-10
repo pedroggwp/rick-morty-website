@@ -1,34 +1,38 @@
-import { useNavigate } from "react-router-dom";
-import ArrowIcon from "../../assets/right-arrow.svg";
 import styles from "./SectionTitle.module.css";
+import { Arrow } from "../Arrow/Arrow";
 
 type Props = {
-    title: string;
-    iconUrl: string;
-    altIcon: string;
-    navigateTo: string;
-}
+  title: string;
+  iconUrl: string;
+  altIcon: string;
+  navigateTo: string;
+  arrowSide: "right" | "left";
+};
 
-export const SectionTitle = ({ title, iconUrl, altIcon, navigateTo }: Props) => {
-  const navigate = useNavigate();
-
-  const handleNavigation = () => {
-    navigate(`${navigateTo}`)
-  }
-
+export const SectionTitle = ({
+  title,
+  iconUrl,
+  altIcon,
+  navigateTo,
+  arrowSide,
+}: Props) => {
   return (
     <div className={styles.sectionTitle}>
       <div className={styles.leftSide}>
-        <h1>{title.toUpperCase()}</h1>
-        <img src={iconUrl} alt={altIcon} />
+      {arrowSide === "right" ? (
+        <>
+          <h1>{title.toUpperCase()}</h1>
+          <img src={iconUrl} alt={altIcon} />
+          <Arrow navigateTo={navigateTo} arrowSide={arrowSide} />
+        </>
+      ) : (
+        <>
+          <Arrow navigateTo={navigateTo} arrowSide={arrowSide} />
+          <h1>{title.toUpperCase()}</h1>
+          <img src={iconUrl} alt={altIcon} />
+        </>
+      )}
       </div>
-
-      <img
-        className={styles.arrowIcon}
-        src={ArrowIcon}
-        alt="Ícone de uma seta"
-        onClick={handleNavigation}
-      />
     </div>
   );
 };

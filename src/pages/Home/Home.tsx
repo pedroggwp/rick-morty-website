@@ -50,6 +50,7 @@ export default function Home() {
         iconUrl={RickIcon}
         altIcon="Rick icon"
         navigateTo={CHARACTER_PATH}
+        arrowSide="right"
       />
 
       <div className={styles.cardsContainer}>
@@ -107,6 +108,7 @@ export default function Home() {
         iconUrl={EpisodeIcon}
         altIcon="Episódios icon"
         navigateTo={EPISODES_PATH}
+        arrowSide="right"
       />
 
       <div className={styles.episodesContainer}>
@@ -158,6 +160,7 @@ export default function Home() {
         iconUrl={PlacesIcon}
         altIcon="Lugares icon"
         navigateTo={PLACES_PATH}
+        arrowSide="right"
       />
 
       <div className={styles.episodesContainer}>
