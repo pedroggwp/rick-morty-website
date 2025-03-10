@@ -4,32 +4,32 @@ import { Location } from "../types/Location";
 import { Episode } from "../types/Episode";
 import { ApiResponse } from "../types/ApiResponse";
 
-export const fetchCharacters = async (): Promise<ApiResponse<Character>> => {
-  try{
-    const { data } = await axios.get("https://rickandmortyapi.com/api/character");
+export const fetchCharacters = async (page: number = 1): Promise<ApiResponse<Character>> => {
+  try {
+    const { data } = await axios.get(`https://rickandmortyapi.com/api/character/?page=${page}`);
     return data;
   } catch (error) {
-    console.error("Error fetching characters list:", error);
+    console.error(`Error fetching characters list for page ${page}:`, error);
     throw error;
   }
 };
 
-export const fetchLocations = async (): Promise<ApiResponse<Location>> => {
-  try{
-    const { data } = await axios.get("https://rickandmortyapi.com/api/location");
+export const fetchLocations = async (page: number = 1): Promise<ApiResponse<Location>> => {
+  try {
+    const { data } = await axios.get(`https://rickandmortyapi.com/api/location/?page=${page}`);
     return data;
   } catch (error) {
-    console.error("Error fetching locations list:", error);
+    console.error(`Error fetching locations list for page ${page}:`, error);
     throw error;
   }
 };
 
-export const fetchEpisodes = async (): Promise<ApiResponse<Episode>> => {
-  try{
-    const { data } = await axios.get("https://rickandmortyapi.com/api/episode");
+export const fetchEpisodes = async (page: number = 1): Promise<ApiResponse<Episode>> => {
+  try {
+    const { data } = await axios.get(`https://rickandmortyapi.com/api/episode/?page=${page}`);
     return data;
   } catch (error) {
-    console.error("Error fetching episodes list:", error);
+    console.error(`Error fetching episodes list for page ${page}:`, error);
     throw error;
   }
 };
