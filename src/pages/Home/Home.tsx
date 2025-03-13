@@ -66,31 +66,71 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.rightContent}>
-          <img src={RickMortyPortal} alt="Rick puxando Morty em frente ao portal" />
+          <img
+            src={RickMortyPortal}
+            alt="Rick puxando Morty em frente ao portal"
+          />
         </div>
       </div>
 
-      {/* Personagens */}
-      <SectionTitle title="Personagens" iconUrl={RickIcon} altIcon="Rick icon" navigateTo={CHARACTER_PATH} />
+      <SectionTitle
+        title="Personagens"
+        iconUrl={RickIcon}
+        altIcon="Rick icon"
+        navigateTo={CHARACTER_PATH}
+        arrowSide="right"
+      />
+
       <div className={styles.cardsContainer}>
         {characters.map((char) => (
-          <CharacterCard key={char.id} name={char.name} species={char.species} gender={char.gender} status={char.status} imageUrl={char.image} />
+          <CharacterCard
+            key={char.id}
+            name={char.name}
+            species={char.species}
+            gender={char.gender}
+            status={char.status}
+            imageUrl={char.image}
+          />
         ))}
       </div>
 
-      {/* Episódios */}
-      <SectionTitle title="Episódios" iconUrl={EpisodeIcon} altIcon="Episódios icon" navigateTo={EPISODES_PATH} />
+      <SectionTitle
+        title="Episódios"
+        iconUrl={EpisodeIcon}
+        altIcon="Episódios icon"
+        navigateTo={EPISODES_PATH}
+        arrowSide="right"
+      />
+
       <div className={styles.episodesContainer}>
         {episodes.map((ep) => (
-          <InfoCard key={ep.id} name={ep.name} dimension={ep.air_date} type={ep.episode} linkText="Ver detalhes" />
+          <InfoCard
+            key={ep.id}
+            name={ep.name}
+            dimension={ep.air_date}
+            type={ep.episode}
+            linkText="Ver detalhes"
+          />
         ))}
       </div>
 
-      {/* Lugares */}
-      <SectionTitle title="Lugares" iconUrl={PlacesIcon} altIcon="Lugares icon" navigateTo={PLACES_PATH} />
+      <SectionTitle
+        title="Lugares"
+        iconUrl={PlacesIcon}
+        altIcon="Lugares icon"
+        navigateTo={PLACES_PATH}
+        arrowSide="right"
+      />
+
       <div className={styles.episodesContainer}>
         {locations.map((loc) => (
-          <InfoCard key={loc.id} name={loc.name} dimension={loc.dimension} type={loc.type} linkText="Ver personagens" />
+          <InfoCard
+            key={loc.id}
+            name={loc.name}
+            dimension={loc.dimension}
+            type={loc.type}
+            linkText="Ver personagens"
+          />
         ))}
       </div>
 

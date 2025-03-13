@@ -14,8 +14,3 @@
 .sectionTitle h1 {
   color: var(--text-color);
 }
-
-.arrowIcon {
-  margin-right: 5em;
-  cursor: pointer;
-}
