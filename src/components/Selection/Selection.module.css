@@ -1,0 +1,57 @@
+.selectionContainer {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  
+  .formContent {
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    background-color: #fff;
+  }
+  
+  .formContent p {
+    margin: 0;
+  }
+  
+  .arrow {
+    font-size: 16px;
+    margin-left: 10px;
+  }
+  
+  .itemList {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-top: none;
+    max-height: 150px;
+    overflow-y: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+  
+  .selectionItem {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .selectionItem:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .selected {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
