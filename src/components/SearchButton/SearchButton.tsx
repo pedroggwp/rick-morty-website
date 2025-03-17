@@ -1,9 +1,13 @@
-import styles from "./SearchButton.module.css"
+import styles from "./SearchButton.module.css";
 
-export default function Search() {
+interface SearchProps {
+    onClick: () => void;
+}
+
+export default function Search({ onClick }: SearchProps) {
     return (
-        <div className={styles.buscar}>
-            <p>Buscar</p>
-        </div>
+        <button className={styles.buscar} onClick={onClick}>
+            Buscar
+        </button>
     );
 }

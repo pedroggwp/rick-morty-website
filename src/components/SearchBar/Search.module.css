@@ -1,16 +1,28 @@
-.searchBar{
+.busca{
     display: flex;
-    justify-content: end;
-    margin-right: 20px;
-    background-color: 3A404C;
+    flex-direction: row;
     border: solid;
     border-color: rgb(242, 244, 248);
     border-radius: 10px;
     width: 350px;
     height: 45px;
+    justify-content: space-evenly;
+}
+
+.searchBar{
+    background-color: transparent;
+    background-color: 3A404C;
+    color:  rgb(242, 244, 248);
+    border: none;
+    outline: none;
+    width: 300px;
+    height: 45px;
+    margin-left: 10px;
+    font-family: 'Solway', serif;
 }
 
 .searchBar img {
     width: 47px; 
     height: 40px; 
+    margin-right: 10px;
 }

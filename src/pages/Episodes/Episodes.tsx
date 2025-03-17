@@ -15,8 +15,7 @@ export default function Episodes() {
         arrowSide="left"
         description="Pesquise um episódio por sua numeração ou nome."
       />
-
-      <Search />
+      <Search placeholder="Número ou nome do episódio"/>
       <SearchButton />
     </>
   );

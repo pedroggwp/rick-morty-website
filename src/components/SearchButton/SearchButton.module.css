@@ -5,7 +5,10 @@
     border: solid;
     border-color: rgb(242, 244, 248);
     border-radius: 10px;
-    width: 150px;
+    width: 110px;
     height: 45px;
     color: azure;
+    font-family: 'Solway', serif;
+    background: none;
+    cursor: pointer;
 }
