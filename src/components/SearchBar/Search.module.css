@@ -1,0 +1,16 @@
+.searchBar{
+    display: flex;
+    justify-content: end;
+    margin-right: 20px;
+    background-color: 3A404C;
+    border: solid;
+    border-color: rgb(242, 244, 248);
+    border-radius: 10px;
+    width: 350px;
+    height: 45px;
+}
+
+.searchBar img {
+    width: 47px; 
+    height: 40px; 
+}
