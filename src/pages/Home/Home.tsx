@@ -9,9 +9,17 @@ import RickIcon from "../../assets/rick.svg";
 import EpisodeIcon from "../../assets/episodes.svg";
 import { InfoCard } from "../../components/InfoCard/InfoCard";
 import PlacesIcon from "../../assets/locations.svg";
-import { CHARACTER_PATH, PLACES_PATH, EPISODES_PATH } from "../../constants/paths";
+import {
+  CHARACTER_PATH,
+  PLACES_PATH,
+  EPISODES_PATH,
+} from "../../constants/paths";
 import { Footer } from "../../components/Footer/Footer";
-import { fetchCharacters, fetchLocations, fetchEpisodes } from "../../service/ApiService";
+import {
+  fetchCharacters,
+  fetchLocations,
+  fetchEpisodes,
+} from "../../service/ApiService";
 import { Character } from "../../types/Character";
 import { Episode } from "../../types/Episode";
 import { Location } from "../../types/Location";
@@ -29,9 +37,9 @@ export default function Home() {
         const [charData, epData, locData] = await Promise.all([
           fetchCharacters(),
           fetchEpisodes(),
-          fetchLocations()
+          fetchLocations(),
         ]);
-        
+
         setCharacters(charData.results.slice(0, 6));
         setEpisodes(epData.results.slice(0, 6));
         setLocations(locData.results.slice(0, 6));
@@ -64,6 +72,15 @@ export default function Home() {
               este é o lugar perfeito para explorar o universo da série!
             </p>
           </div>
+
+          <div className={styles.description}>
+            <p>
+              Rick&Morty HUB oferece uma plataforma interativa onde você pode
+              acessar e consultar informações sobre os episódios, personagens e
+              locais que fazem parte dessa aventura maluca e cheia de
+              reviravoltas.
+            </p>
+          </div>
         </div>
         <div className={styles.rightContent}>
           <img
@@ -79,6 +96,7 @@ export default function Home() {
         altIcon="Rick icon"
         navigateTo={CHARACTER_PATH}
         arrowSide="right"
+        description=""
       />
 
       <div className={styles.cardsContainer}>
@@ -100,6 +118,7 @@ export default function Home() {
         altIcon="Episódios icon"
         navigateTo={EPISODES_PATH}
         arrowSide="right"
+        description=""
       />
 
       <div className={styles.episodesContainer}>
@@ -120,6 +139,7 @@ export default function Home() {
         altIcon="Lugares icon"
         navigateTo={PLACES_PATH}
         arrowSide="right"
+        description=""
       />
 
       <div className={styles.episodesContainer}>
