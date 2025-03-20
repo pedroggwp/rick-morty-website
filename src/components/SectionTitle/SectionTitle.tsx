@@ -19,19 +19,19 @@ export const SectionTitle = ({
   return (
     <div className={styles.sectionTitle}>
       <div className={styles.leftSide}>
-      {arrowSide === "right" ? (
-        <>
-          <h1>{title.toUpperCase()}</h1>
-          <img src={iconUrl} alt={altIcon} />
-          <Arrow navigateTo={navigateTo} arrowSide={arrowSide} />
-        </>
-      ) : (
-        <>
-          <Arrow navigateTo={navigateTo} arrowSide={arrowSide} />
-          <h1>{title.toUpperCase()}</h1>
-          <img src={iconUrl} alt={altIcon} />
-        </>
-      )}
+        {arrowSide === "right" ? (
+          <>
+            <h1>{title.toUpperCase()}</h1>
+            <img src={iconUrl} alt={altIcon} />
+            <Arrow navigateTo={navigateTo} arrowSide={arrowSide} />
+          </>
+        ) : (
+          <>
+            <Arrow navigateTo={navigateTo} arrowSide={arrowSide} />
+            <img src={iconUrl} alt={altIcon} />
+            <h1>{title.toUpperCase()}</h1>
+          </>
+        )}
       </div>
     </div>
   );
