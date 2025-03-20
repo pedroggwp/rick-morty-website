@@ -14,6 +14,7 @@ export const Character = () => {
           altIcon="Rick Morty ícone"
           navigateTo={HOME_PATH}
           arrowSide="left"
+          description="Descrição"
         />
 
         <p>Ache personagens pelo nome, ou aplique filtros.</p>

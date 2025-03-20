@@ -3,33 +3,33 @@
     grid-template-columns: 1fr 1fr;
     max-width: 100%;
     margin: 0 auto;
-    margin: var(--margin-default);
+    padding: 3rem 0rem 3rem 3rem;
 }
 
 .logoTitle {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .hubTitle {
-    color: var(--text-color);
-    font-weight: bold;
-    font-size: var(--font-big);
+  color: rgb(241, 241, 241);
+  font-weight: bold;
+  font-size: var(--font-big);
 }
 
 .description {
-    color: var(--text-color);
-    font-size: var(--font-medium);
+  color: var(--text-color);
+  font-size: var(--font-medium);
 }
 
 .leftContent {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .cardsContainer {
-  display: grid; 
+  display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin: var(--margin-card);

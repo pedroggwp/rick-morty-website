@@ -7,6 +7,7 @@ type Props = {
   altIcon: string;
   navigateTo: string;
   arrowSide: "right" | "left";
+  description: string;
 };
 
 export const SectionTitle = ({
@@ -15,6 +16,7 @@ export const SectionTitle = ({
   altIcon,
   navigateTo,
   arrowSide,
+  description,
 }: Props) => {
   return (
     <div className={styles.sectionTitle}>
@@ -33,6 +35,8 @@ export const SectionTitle = ({
           </>
         )}
       </div>
+
+      <p className={styles.description}>{description}</p>
     </div>
   );
 };
