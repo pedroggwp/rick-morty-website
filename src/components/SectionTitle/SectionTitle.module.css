@@ -3,7 +3,8 @@
   flex-direction: column;
   align-items: first baseline;
   justify-content: space-between;
-  margin: var(--margin-default);
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
 .leftSide {

@@ -1,14 +1,16 @@
-.buscar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: solid;
-    border-color: rgb(242, 244, 248);
-    border-radius: 10px;
-    width: 110px;
+.buscar {
+    width: 80%;
     height: 45px;
-    color: azure;
+    background: #212830;
+    border: none;
+    border-radius: 10px;
+    color: white;
     font-family: 'Solway', serif;
-    background: none;
+    font-weight: bold;
     cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.buscar:hover {
+    background: #4CAF50;
 }

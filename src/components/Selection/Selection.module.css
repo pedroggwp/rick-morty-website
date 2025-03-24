@@ -1,67 +1,67 @@
 .selectionContainer {
-    padding: 20px;
     display: flex;
     flex-direction: column;
     position: relative;
-  }
-  
-  .formContent {
-    padding: 10px;
-    border: 2px solid #F2F4F8;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
     width: 100%;
-    background-color: #3A404C;
-    color: #FFFFFF;
-    transition: background-color 0.3s ease;
+    margin-bottom: 1rem; /* Espaço entre filtros */
   }
   
-  .formContent:hover {
-    background-color: #212830;
-  }
+.formContent {
+  padding: 10px;
+  border: 2px solid #F2F4F8;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background-color: #3A404C;
+  color: #FFFFFF;
+  transition: background-color 0.3s ease;
+}
   
-  .formContent.selected {
-    background-color: #5CB85C;
-  }
-  
-  .formContent p {
-    margin: 0;
-  }
-  
-  .arrow {
-    width: 16px;
-    height: 16px;
-    margin-left: 10px;
-    object-fit: contain;
-  }
-  
-  .itemList {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #3A404C;
-    max-height: 150px;
-    overflow-y: auto;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-  }
-  
-  .selectionItem {
-    padding: 10px;
-    cursor: pointer;
-    color: #FFFFFF;
-  }
-  
-  .selectionItem:hover {
-    background-color: #212830;
-  }
-  
-  .selected {
-    background-color: #5CB85C;
-  }
+.formContent:hover {
+  background-color: #212830;
+}
+
+.formContent.selected {
+  background-color: #5CB85C;
+}
+
+.formContent p {
+  margin: 0;
+}
+
+.arrow {
+  width: 16px;
+  height: 16px;
+  margin-left: 10px;
+  object-fit: contain;
+}
+
+.itemList {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #3A404C;
+  max-height: 150px;
+  overflow-y: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.selectionItem {
+  padding: 10px;
+  cursor: pointer;
+  color: #FFFFFF;
+}
+
+.selectionItem:hover {
+  background-color: #212830;
+}
+
+.selected {
+  background-color: #5CB85C;
+}
   
