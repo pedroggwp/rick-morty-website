@@ -1,13 +1,13 @@
 import { useState } from "react";
 import styles from "./Selection.module.css";
+import Caret from '../../assets/caret.svg'
 
-interface SelectionProps {
+type Props = {
   items: string[];
   onSelect?: (item: string) => void;
-  arrowImage: string;
 }
 
-export const Selection: React.FC<SelectionProps> = ({ items, onSelect, arrowImage }) => {
+export const Selection = ({ items, onSelect }: Props) => {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [isListOpen, setIsListOpen] = useState(false);
 
@@ -19,12 +19,12 @@ export const Selection: React.FC<SelectionProps> = ({ items, onSelect, arrowImag
 
   return (
     <div className={styles.selectionContainer}>
-      <div 
-        className={styles.formContent} 
+      <div
+        className={styles.formContent}
         onClick={() => setIsListOpen(!isListOpen)}
       >
         <p>{selectedItem || "Selecione um item"}</p>
-        <img src={arrowImage} alt="Seta" className={styles.arrow} />
+        <img src={Caret} alt="Seta" className={styles.arrow} />
       </div>
 
       {isListOpen && (
@@ -33,7 +33,9 @@ export const Selection: React.FC<SelectionProps> = ({ items, onSelect, arrowImag
             <div
               key={index}
               onClick={() => handleSelect(item)}
-              className={`${styles.selectionItem} ${selectedItem === item ? styles.selected : ""}`}
+              className={`${styles.selectionItem} ${
+                selectedItem === item ? styles.selected : ""
+              }`}
             >
               {item}
             </div>

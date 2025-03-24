@@ -1,5 +1,5 @@
 import Search from "../../components/SearchBar/Search";
-import SearchButton from "../../components/SearchButton/SearchButton";
+import { SearchButton } from "../../components/SearchButton/SearchButton";
 import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
 import EpisodesIcon from "../../assets/episodes.svg";
 import { HOME_PATH } from "../../constants/paths";
@@ -16,7 +16,10 @@ export default function Episodes() {
         description="Pesquise um episódio por sua numeração ou nome."
       />
       <Search placeholder="Número ou nome do episódio"/>
-      <SearchButton />
+
+      <SearchButton 
+      onClick={() => console.log("A")}
+      />
     </>
   );
 }

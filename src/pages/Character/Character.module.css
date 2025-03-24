@@ -1,0 +1,14 @@
+.cardsContainer {
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.selectionContainer {
+  display: flex;
+  gap: 5%;
+}
+
+.characterContainer {
+  margin: var(--margin-default);
+}
