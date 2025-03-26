@@ -32,15 +32,16 @@ export function Episodes() {
           setLoading(false);
         }
       };
-  
+
       fetchData();
     }, []);
-  
+
     if (loading) return <p>Carregando...</p>;
     if (error) return <p>{error}</p>;
 
   return (
     <>
+  
       <div className={styles.header}>
         <SectionTitle
           title="EPISÓDIOS"

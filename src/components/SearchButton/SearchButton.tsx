@@ -1,6 +1,6 @@
 import styles from "./SearchButton.module.css";
 
-interface SearchProps {
+type SearchProps = {
     onClick: () => void;
 }
 
