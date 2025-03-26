@@ -2,7 +2,7 @@ import styles from "./Search.module.css"
 import  Lupa  from "../../assets/search_icon.svg"
 import { useState } from "react";
 
-export default function Search({ placeholder = "Buscar..." }) {
+export function Search({ placeholder = "Buscar..." }) {
     const [query, setQuery] = useState("");
 
     return (

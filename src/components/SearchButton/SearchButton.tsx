@@ -4,7 +4,7 @@ interface SearchProps {
     onClick: () => void;
 }
 
-export default function Search({ onClick }: SearchProps) {
+export function SearchButton({ onClick }: SearchProps) {
     return (
         <button className={styles.buscar} onClick={onClick}>
             Buscar
