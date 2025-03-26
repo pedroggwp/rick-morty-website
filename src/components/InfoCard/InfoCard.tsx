@@ -1,19 +1,27 @@
 import styles from "./InfoCard.module.css";
 
 type InfoCardProps = {
-  name: string;
-  dimension: string;
-  type: string;
-  linkText: string;
+  title: string;
+  firstTitle: string;
+  firstInfo: string;
+  secTitle: string;
+  secInfo: string;
+  id: number;
 };
 
-export function InfoCard({ name, dimension, type, linkText }: InfoCardProps) {
+export function InfoCard({ title, firstTitle, firstInfo, secTitle, secInfo, id }: InfoCardProps) {
   return (
     <div className={styles.episodesCard}>
-      <h3>{name}</h3>
-      <p>{dimension}</p>
-      <p>{type}</p>
-      <a href="#">{linkText}</a>
+      <div className={styles.first}>
+        <h3>{title}</h3>
+        <p>ID: {id}</p>
+      </div>
+      <div className={styles.second}>
+        <h6>{firstTitle}:</h6>
+        <p>{firstInfo}</p>
+        <h6>{secTitle}:</h6>
+        <p>{secInfo}</p>
+      </div>
     </div>
   );
 }
