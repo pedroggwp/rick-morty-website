@@ -41,7 +41,6 @@ export function Episodes() {
 
   return (
     <>
-  
       <div className={styles.header}>
         <SectionTitle
           title="EPISÓDIOS"

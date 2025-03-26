@@ -7,11 +7,9 @@
     border-radius: 10px;
     width: 110px;
     height: 45px;
-    height: 50px;
     color: azure;
     font-family: 'Solway', serif;
     background: none;
-    cursor: pointer;
 }
 
 .buscar:hover {
