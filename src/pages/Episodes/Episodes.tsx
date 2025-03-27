@@ -1,7 +1,7 @@
 import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
 import EpisodesIcon from "../../assets/episodes.svg";
 import { HOME_PATH } from "../../constants/paths";
-import { SearchEpisode } from "../../components/SearchEpisode/SearchEpisode"
+import { SearchSet } from "../../components/SearchSet/SearchSet"
 import styles from "./Episodes.module.css"
 import { useState, useEffect } from "react";
 import { Episode } from "../../types/Episode";
@@ -50,7 +50,7 @@ export function Episodes() {
           arrowSide="left"
           description="Pesquise um episódio por sua numeração ou nome."
         />
-        <SearchEpisode/>
+        <SearchSet/>
       </div>
 
       <div className={styles.cont}>

@@ -1,11 +1,11 @@
-import styles from "./SearchEpisode.module.css"
+import styles from "./SearchSet.module.css"
 import { Search } from "../SearchBar/Search"
 import { SearchButton } from "../SearchButton/SearchButton"
 
-export function SearchEpisode(){
+export function SearchSet(){
     return (
         <div className={styles.conjunto}>
-            <Search placeholder="Número ou nome do episódio"/>
+            <Search placeholder="Pesquise pelo número ou nome"/>
             <SearchButton onClick={() => console.log("Botão clicado!")} />
         </div>
     );

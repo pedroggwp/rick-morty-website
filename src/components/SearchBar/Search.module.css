@@ -23,3 +23,11 @@
     height: 40px; 
     margin-right: 10px;
 }
+
+input {
+    color: white;
+    background: transparent;
+    border: 1px solid white;
+    padding: 8px;
+    border-radius: 8px;
+}  
