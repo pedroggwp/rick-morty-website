@@ -2,8 +2,10 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    width: 100%;
+    width: 250px;
     margin-bottom: 1rem; /* Espaço entre filtros */
+    margin-left: 20px;
+    margin-right: 20px;
   }
   
 .formContent {

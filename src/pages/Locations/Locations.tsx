@@ -9,8 +9,7 @@ import {
   fetchLocations
 } from "../../service/ApiService";
 import { InfoCard } from "../../components/InfoCard/InfoCard";
-
-
+import { Selection } from "../../components/Selection/Selection";
 
 export const Locations = () => {
   const [locations, setLocations] = useState<Location[]>([]);
@@ -51,6 +50,12 @@ export const Locations = () => {
           description="Encontre os lugares da série por sua numeração ou nome."
         />
         <SearchSet/>
+      </div>
+
+      <div className={styles.filters}>
+        <Selection items={["OI", "A"]} />
+        <Selection items={["OI", "A"]} />
+        <Selection items={["OI", "A"]} />
       </div>
 
       <div className={styles.cont}>
