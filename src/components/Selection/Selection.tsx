@@ -1,20 +1,19 @@
 import { useState } from "react";
 import styles from "./Selection.module.css";
-import Caret from '../../assets/caret.svg'
+import Caret from '../../assets/caret.svg';
 
 type Props = {
   items: string[];
+  selectedItem?: string;
   onSelect?: (item: string) => void;
-}
+};
 
-export const Selection = ({ items, onSelect }: Props) => {
-  const [selectedItem, setSelectedItem] = useState<string | null>(null);
+export const Selection = ({ items, selectedItem, onSelect }: Props) => {
   const [isListOpen, setIsListOpen] = useState(false);
 
   const handleSelect = (item: string) => {
-    setSelectedItem(item);
-    setIsListOpen(false);
     onSelect?.(item);
+    setIsListOpen(false);
   };
 
   return (
