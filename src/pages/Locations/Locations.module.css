@@ -22,3 +22,8 @@
     margin-left: 105px;
     margin-top: 30px;
 }
+
+.selectionContainer {
+    display: flex;
+    gap: 2%;
+  }

@@ -55,15 +55,10 @@ export const Locations = () => {
         />
       </div>
 
-      <div className={styles.searchSet}>
-          <Search placeholder="Digite nome ou numeração" query={query} setQuery={setQuery} />
-          <SearchButton onClick={() => fetchData({ ...filters, name: query })} />
-        </div>
-
       {error && <p className={styles.error}>{error}</p>}
       {loading && <p className={styles.loading}>Carregando...</p>}
 
-      <div className={styles.filters}>
+      <div className={styles.selectionContainer}>
         <Selection
           items={["", "Dimension A", "Dimension B", "Dimension C"]}
           selectedItem={selectedDimension}
@@ -72,6 +67,10 @@ export const Locations = () => {
             setFilters((prev) => ({ ...prev, dimension: value }));
           }}
         />
+        <div className={styles.searchSet}>
+          <Search placeholder="Digite nome ou numeração" query={query} setQuery={setQuery} />
+          <SearchButton onClick={() => fetchData({ ...filters, name: query })} />
+        </div>
       </div>
 
       <div className={styles.cont}>

@@ -60,16 +60,13 @@ export const Characters = () => {
           description="Pesquise um episódio por sua numeração ou nome."
         />
 
-        <div className={styles.searchSet}>
-          <Search placeholder="Digite um personagem" query={query} setQuery={setQuery} />
-          <SearchButton onClick={() => fetchData({ ...filters, name: query })} />
-        </div>
+        
       </div>
 
       {error && <p className={styles.error}>{error}</p>}
       {loading && <p className={styles.loading}>Carregando...</p>}
 
-      <div className={styles.filters}>
+      <div className={styles.selectionContainer}>
         <Selection
           items={["", "Alive", "Dead", "unknown"]}
           selectedItem={selectedStatus}
@@ -96,6 +93,10 @@ export const Characters = () => {
             setFilters((prev) => ({ ...prev, gender: value }));
           }}
         />
+        <div className={styles.searchSet}>
+          <Search placeholder="Digite um personagem" query={query} setQuery={setQuery} />
+          <SearchButton onClick={() => fetchData({ ...filters, name: query })} />
+        </div>
       </div>
 
       <span>Resultados ({characters.length})</span>

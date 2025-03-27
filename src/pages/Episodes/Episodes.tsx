@@ -39,11 +39,6 @@ export function Episodes() {
   fetchData(filters);
 }, [filters]);
 
-const handleSearch = () => {
-  setFilters((prev) => ({ ...prev, name: query }));
-};
-
-
   return (
     <>
       <div className={styles.header}>
@@ -57,24 +52,21 @@ const handleSearch = () => {
         />
       </div>
 
-      <div className={styles.searchSet}>
-          <Search placeholder="Digite um personagem" query={query} setQuery={setQuery} />
-          <SearchButton onClick={() => fetchData({ ...filters, name: query })} />
-        </div>
+      <div className={styles.selectionContainer}>
+      <Selection
+        items={["", "S01", "S02", "S03", "S04", "S05"]}
+        selectedItem={selectedSeason}
+        onSelect={(value) => {
+          setSelectedSeason(value);
+          setFilters((prev) => ({ ...prev, episode: value }));
+        }}
+      />
+      <Search placeholder="O nome do episódio" query={query} setQuery={setQuery} />
+      <SearchButton onClick={() => fetchData({ ...filters, name: query })} />
+      </div>
         
       {error && <p className={styles.error}>{error}</p>}
       {loading && <p className={styles.loading}>Carregando...</p>}
-
-      <div className={styles.filters}>
-        <Selection
-          items={["", "S01", "S02", "S03", "S04", "S05"]}
-          selectedItem={selectedSeason}
-          onSelect={(value) => {
-            setSelectedSeason(value);
-            setFilters((prev) => ({ ...prev, episode: value }));
-          }}
-        />
-      </div>
 
       <div className={styles.cont}>
         <div className={styles.episodesContainer}>
