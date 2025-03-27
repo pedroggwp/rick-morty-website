@@ -44,48 +44,48 @@ export const Locations = () => {
 
   return (
     <>
-      <div className={styles.header}>
-        <SectionTitle
-          title="LUGARES"
-          iconUrl={LocationIcon}
-          altIcon="Rick Morty ícone"
-          navigateTo={HOME_PATH}
-          arrowSide="left"
-          description="Encontre os lugares da série por sua numeração ou nome."
-        />
-      </div>
-
-      {error && <p className={styles.error}>{error}</p>}
-      {loading && <p className={styles.loading}>Carregando...</p>}
-
-      <div className={styles.selectionContainer}>
-        <Selection
-          items={["", "Dimension A", "Dimension B", "Dimension C"]}
-          selectedItem={selectedDimension}
-          onSelect={(value) => {
-            setSelectedDimension(value);
-            setFilters((prev) => ({ ...prev, dimension: value }));
-          }}
-        />
-        <div className={styles.searchSet}>
-          <Search placeholder="Digite nome ou numeração" query={query} setQuery={setQuery} />
-          <SearchButton onClick={() => fetchData({ ...filters, name: query })} />
+      <div className={styles.pageContainer}>
+        <div className={styles.header}>
+          <SectionTitle
+            title="LUGARES"
+            iconUrl={LocationIcon}
+            altIcon="Rick Morty ícone"
+            navigateTo={HOME_PATH}
+            arrowSide="left"
+            description="Encontre os lugares da série por sua numeração ou nome."
+          />
         </div>
-      </div>
-
-      <div className={styles.cont}>
-        <div className={styles.locationsContainer}>
-          {locations.map((loc) => (
-            <InfoCard
-              key={loc.id}
-              title={loc.name}
-              firstTitle="Dimension"
-              firstInfo={loc.dimension}
-              secTitle="Type"
-              secInfo={loc.type}
-              id={loc.id}
-            />
-          ))}
+        {error && <p className={styles.error}>{error}</p>}
+        {loading && <p className={styles.loading}>Carregando...</p>}
+        <div className={styles.selectionContainer}>
+          <Selection
+            items={["", "Dimension A", "Dimension B", "Dimension C"]}
+            selectedItem={selectedDimension}
+            onSelect={(value) => {
+              setSelectedDimension(value);
+              setFilters((prev) => ({ ...prev, dimension: value }));
+            }}
+          />
+          <div className={styles.searchSet}>
+            <Search placeholder="Digite nome ou numeração" query={query} setQuery={setQuery} />
+            <SearchButton onClick={() => fetchData({ ...filters, name: query })} />
+          </div>
+        
+        </div>
+        <div className={styles.cont}>
+          <div className={styles.locationsContainer}>
+            {locations.map((loc) => (
+              <InfoCard
+                key={loc.id}
+                title={loc.name}
+                firstTitle="Dimension"
+                firstInfo={loc.dimension}
+                secTitle="Type"
+                secInfo={loc.type}
+                id={loc.id}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </>

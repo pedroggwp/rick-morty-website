@@ -41,46 +41,46 @@ export function Episodes() {
 
   return (
     <>
-      <div className={styles.header}>
-        <SectionTitle
-          title="EPISÓDIOS"
-          iconUrl={EpisodesIcon}
-          altIcon="Rick Morty ícone"
-          navigateTo={HOME_PATH}
-          arrowSide="left"
-          description="Pesquise um episódio por sua numeração ou nome."
+      <div className={styles.pageContainer}>
+        <div className={styles.header}>
+          <SectionTitle
+            title="EPISÓDIOS"
+            iconUrl={EpisodesIcon}
+            altIcon="Rick Morty ícone"
+            navigateTo={HOME_PATH}
+            arrowSide="left"
+            description="Pesquise um episódio por sua numeração ou nome."
+          />
+        </div>
+        <div className={styles.selectionContainer}>
+        <Selection
+          items={["", "S01", "S02", "S03", "S04", "S05"]}
+          selectedItem={selectedSeason}
+          onSelect={(value) => {
+            setSelectedSeason(value);
+            setFilters((prev) => ({ ...prev, episode: value }));
+          }}
         />
-      </div>
-
-      <div className={styles.selectionContainer}>
-      <Selection
-        items={["", "S01", "S02", "S03", "S04", "S05"]}
-        selectedItem={selectedSeason}
-        onSelect={(value) => {
-          setSelectedSeason(value);
-          setFilters((prev) => ({ ...prev, episode: value }));
-        }}
-      />
-      <Search placeholder="O nome do episódio" query={query} setQuery={setQuery} />
-      <SearchButton onClick={() => fetchData({ ...filters, name: query })} />
-      </div>
+        <Search placeholder="O nome do episódio" query={query} setQuery={setQuery} />
+        <SearchButton onClick={() => fetchData({ ...filters, name: query })} />
+        </div>
         
-      {error && <p className={styles.error}>{error}</p>}
-      {loading && <p className={styles.loading}>Carregando...</p>}
-
-      <div className={styles.cont}>
-        <div className={styles.episodesContainer}>
-          {episodes.map((ep) => (
-            <InfoCard
-              key={ep.id}
-              title={ep.name}
-              firstTitle="Air Date"
-              firstInfo={ep.air_date}
-              secTitle="Episode code"
-              secInfo={ep.episode}
-              id={ep.id}
-            />
-          ))}
+        {error && <p className={styles.error}>{error}</p>}
+        {loading && <p className={styles.loading}>Carregando...</p>}
+        <div className={styles.cont}>
+          <div className={styles.episodesContainer}>
+            {episodes.map((ep) => (
+              <InfoCard
+                key={ep.id}
+                title={ep.name}
+                firstTitle="Air Date"
+                firstInfo={ep.air_date}
+                secTitle="Episode code"
+                secInfo={ep.episode}
+                id={ep.id}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </>
