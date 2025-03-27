@@ -3,7 +3,7 @@
     flex-direction: column;
     position: relative;
     width: 250px;
-    margin-bottom: 1rem; /* Espaço entre filtros */
+    margin-bottom: 1rem; 
     margin-left: 20px;
     margin-right: 20px;
   }
