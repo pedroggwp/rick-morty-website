@@ -4,7 +4,7 @@ type SearchProps = {
     onClick: () => void;
 }
 
-export const SearchButton = ({ onClick }: SearchProps) => {
+export function SearchButton({ onClick }: SearchProps) {
     return (
         <button className={styles.buscar} onClick={onClick}>
             Buscar

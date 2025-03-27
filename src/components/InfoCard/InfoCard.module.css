@@ -1,30 +1,43 @@
 .episodesCard {
+  display: flex;
+  justify-content: space-between;
   background-color: #212830;
   border-radius: 8px;
   padding: 1rem;
   color: var(--text-color);
+  height: 100px;
+  width: 350px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  align-items: center;
+}
+
+.first {
+  flex: 1;
+}
+
+.second {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  margin-top: 10px;
 }
 
 .episodesCard h3 {
-  margin: 0 0 0.5rem 0;
   font-size: 1.25rem;
   font-weight: bold;
-  margin-bottom: 2rem;
+}
+
+.episodesCard h6 {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #6D7886;
+  margin: 0;
 }
 
 .episodesCard p {
-  margin: 0.5rem 0;
-  font-size: 0.95rem;
-}
-
-.episodesCard a {
-  display: inline-block;
-  margin-top: 0.75rem;
-  font-size: 0.95rem;
-  text-decoration: none;
-}
-
-.episodesCard a:hover {
-  text-decoration: underline;
+  font-size: 0.9rem;
+  margin: 0;
+  margin-bottom: 5px;
 }

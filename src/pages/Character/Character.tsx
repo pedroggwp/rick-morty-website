@@ -4,7 +4,7 @@ import RickIcon from "../../assets/rick.svg"
 import { CharacterCard } from "../../components/CharacterCard/CharacterCard"
 import styles from "./Character.module.css"
 import { Selection } from "../../components/Selection/Selection"
-import Search from "../../components/SearchBar/Search"
+import { Search } from "../../components/SearchBar/Search"
 import { SearchButton } from "../../components/SearchButton/SearchButton"
 
 export const Character = () => {

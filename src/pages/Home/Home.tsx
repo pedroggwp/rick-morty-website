@@ -130,11 +130,12 @@ export default function Home() {
       <div className={styles.episodesContainer}>
         {episodes.map((ep) => (
           <InfoCard
-            key={ep.id}
-            name={ep.name}
-            dimension={ep.air_date}
-            type={ep.episode}
-            linkText="Ver detalhes"
+            title={ep.name}
+            firstTitle="Air Date"
+            firstInfo={ep.air_date}
+            secTitle="Episode code"
+            secInfo={ep.episode}
+            id={ep.id}
           />
         ))}
       </div>
@@ -150,16 +151,16 @@ export default function Home() {
 
       <div className={styles.episodesContainer}>
         {locations.map((loc) => (
-          <InfoCard
-            key={loc.id}
-            name={loc.name}
-            dimension={loc.dimension}
-            type={loc.type}
-            linkText="Ver personagens"
-          />
-        ))}
+            <InfoCard
+              title={loc.name}
+              firstTitle="Dimension"
+              firstInfo={loc.dimension}
+              secTitle="type"
+              secInfo={loc.type}
+              id={loc.id}
+            />
+          ))}
       </div>
-
       <Footer />
     </>
   );
