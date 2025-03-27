@@ -2,41 +2,45 @@ import styles from "./Locations.module.css";
 import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
 import { HOME_PATH } from "../../constants/paths";
 import LocationIcon from "../../assets/locations.svg";
-import { SearchSet } from "../../components/SearchSet/SearchSet"
 import { useState, useEffect } from "react";
 import { Location } from "../../types/Location";
-import {
-  fetchLocations
-} from "../../service/ApiService";
+import { fetchLocations } from "../../service/ApiService";
 import { InfoCard } from "../../components/InfoCard/InfoCard";
 import { Selection } from "../../components/Selection/Selection";
+import { Search } from "../../components/SearchBar/Search";
+import { SearchButton } from "../../components/SearchButton/SearchButton";
 
 export const Locations = () => {
   const [locations, setLocations] = useState<Location[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [filters, setFilters] = useState({
+    name: "",
+    dimension: "",
+    type: "",
+  });
+  const [selectedDimension, setSelectedDimension] = useState("");
+  const [query, setQuery] = useState("");
+
+
+  const fetchData = async (filters: { name: string; dimension: string; type: string }) => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const locData = await fetchLocations(filters);
+      setLocations(locData.results);
+    } catch (err) {
+      setError("Erro ao carregar dados.");
+      setLocations([]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const [locData] = await Promise.all([
-            fetchLocations()
-          ]);
-  
-          setLocations(locData.results.slice(0, 6));
-      
-        } catch (err) {
-          setError("Erro ao carregar dados.");
-        } finally {
-          setLoading(false);
-        }
-      };
-  
-      fetchData();
-    }, []);
-  
-    if (loading) return <p>Carregando...</p>;
-    if (error) return <p>{error}</p>;
+    fetchData(filters);
+  }, [filters]);
 
   return (
     <>
@@ -49,27 +53,40 @@ export const Locations = () => {
           arrowSide="left"
           description="Encontre os lugares da série por sua numeração ou nome."
         />
-        <SearchSet/>
       </div>
 
+      <div className={styles.searchSet}>
+          <Search placeholder="Digite nome ou numeração" query={query} setQuery={setQuery} />
+          <SearchButton onClick={() => fetchData({ ...filters, name: query })} />
+        </div>
+
+      {error && <p className={styles.error}>{error}</p>}
+      {loading && <p className={styles.loading}>Carregando...</p>}
+
       <div className={styles.filters}>
-        <Selection items={["OI", "A"]} />
-        <Selection items={["OI", "A"]} />
-        <Selection items={["OI", "A"]} />
+        <Selection
+          items={["", "Dimension A", "Dimension B", "Dimension C"]}
+          selectedItem={selectedDimension}
+          onSelect={(value) => {
+            setSelectedDimension(value);
+            setFilters((prev) => ({ ...prev, dimension: value }));
+          }}
+        />
       </div>
 
       <div className={styles.cont}>
-        <div className={styles.episodesContainer}>
+        <div className={styles.locationsContainer}>
           {locations.map((loc) => (
-              <InfoCard
-                title={loc.name}
-                firstTitle="Dimension"
-                firstInfo={loc.dimension}
-                secTitle="type"
-                secInfo={loc.type}
-                id={loc.id}
-              />
-            ))}
+            <InfoCard
+              key={loc.id}
+              title={loc.name}
+              firstTitle="Dimension"
+              firstInfo={loc.dimension}
+              secTitle="Type"
+              secInfo={loc.type}
+              id={loc.id}
+            />
+          ))}
         </div>
       </div>
     </>

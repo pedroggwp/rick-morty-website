@@ -1,44 +1,48 @@
 import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
 import EpisodesIcon from "../../assets/episodes.svg";
 import { HOME_PATH } from "../../constants/paths";
-import { SearchSet } from "../../components/SearchSet/SearchSet"
-import styles from "./Episodes.module.css"
+import { Search } from "../../components/SearchBar/Search";
+import { SearchButton } from "../../components/SearchButton/SearchButton";import styles from "./Episodes.module.css";
 import { useState, useEffect } from "react";
 import { Episode } from "../../types/Episode";
-import {
-  fetchEpisodes
-} from "../../service/ApiService";
+import { fetchEpisodes } from "../../service/ApiService";
 import { InfoCard } from "../../components/InfoCard/InfoCard";
 import { Selection } from "../../components/Selection/Selection";
-
 
 export function Episodes() {
   const [episodes, setEpisodes] = useState<Episode[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [filters, setFilters] = useState({
+    name: "",
+    episode: "",
+  });
+  const [selectedSeason, setSelectedSeason] = useState("");
+  const [query, setQuery] = useState("");
 
+  const fetchData = async (filters: { name: string; episode: string }) => {
+    setLoading(true);
+    setError(null);
 
-  useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const [epData] = await Promise.all([
-            fetchEpisodes()
-          ]);
+    try {
+      const epData = await fetchEpisodes(filters);
+      setEpisodes(epData.results);
+    } catch (err) {
+      setError("Erro ao carregar dados.");
+      setEpisodes([]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-          setEpisodes(epData.results.slice(0, 6));
+ useEffect(() => {
+  fetchData(filters);
+}, [filters]);
 
-        } catch (err) {
-          setError("Erro ao carregar dados.");
-        } finally {
-          setLoading(false);
-        }
-      };
+const handleSearch = () => {
+  setFilters((prev) => ({ ...prev, name: query }));
+};
 
-      fetchData();
-    }, []);
-
-    if (loading) return <p>Carregando...</p>;
-    if (error) return <p>{error}</p>;
 
   return (
     <>
@@ -51,19 +55,32 @@ export function Episodes() {
           arrowSide="left"
           description="Pesquise um episódio por sua numeração ou nome."
         />
-        <SearchSet/>
       </div>
 
+      <div className={styles.searchSet}>
+          <Search placeholder="Digite um personagem" query={query} setQuery={setQuery} />
+          <SearchButton onClick={() => fetchData({ ...filters, name: query })} />
+        </div>
+        
+      {error && <p className={styles.error}>{error}</p>}
+      {loading && <p className={styles.loading}>Carregando...</p>}
+
       <div className={styles.filters}>
-        <Selection items={["OI", "A"]} />
-        <Selection items={["OI", "A"]} />
-        <Selection items={["OI", "A"]} />
+        <Selection
+          items={["", "S01", "S02", "S03", "S04", "S05"]}
+          selectedItem={selectedSeason}
+          onSelect={(value) => {
+            setSelectedSeason(value);
+            setFilters((prev) => ({ ...prev, episode: value }));
+          }}
+        />
       </div>
 
       <div className={styles.cont}>
         <div className={styles.episodesContainer}>
           {episodes.map((ep) => (
             <InfoCard
+              key={ep.id}
               title={ep.name}
               firstTitle="Air Date"
               firstInfo={ep.air_date}
