@@ -5,7 +5,7 @@
     margin-left: 100px;
 }
 
-.episodesContainer {
+.locationsContainer {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
     gap: 1.5rem;
@@ -26,4 +26,10 @@
 .selectionContainer {
     display: flex;
     gap: 2%;
-  }
+    margin-left: 100px;
+}
+
+.pageContainer {
+    margin: var(--margin-default);
+}
+  
