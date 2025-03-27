@@ -1,21 +1,23 @@
-import styles from "./Search.module.css"
-import  Lupa  from "../../assets/search_icon.svg"
-import { useState } from "react";
+import styles from "./Search.module.css";
+import Lupa from "../../assets/search_icon.svg";
 
-export function Search({ placeholder = "Buscar..." }) {
-    const [query, setQuery] = useState("");
+type SearchProps = {
+    placeholder?: string;
+    query: string;
+    setQuery: (value: string) => void; 
+};
 
+export function Search({ placeholder = "Buscar...", query, setQuery }: SearchProps) {
     return (
         <div className={styles.busca}>
             <input
                 className={styles.searchBar}
-                type="text" 
-                placeholder={placeholder} 
-                value={query} 
+                type="text"
+                placeholder={placeholder}
+                value={query}
                 onChange={(e) => setQuery(e.target.value)}
             />
-
-            <img src={Lupa} alt="icone de busca"/>
+            <img src={Lupa} alt="Ícone de busca" />
         </div>
     );
 }
