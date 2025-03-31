@@ -3,13 +3,13 @@
     flex-direction: column;
     position: relative;
     width: 250px;
-    margin-bottom: 1rem; 
+    margin-bottom: 1rem;
     margin-left: 20px;
     margin-right: 20px;
-  }
-  
+}
+
 .formContent {
-  padding: 10px;
+  padding: 15px;
   border: 2px solid #F2F4F8;
   border-radius: 5px;
   display: flex;

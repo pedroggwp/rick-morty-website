@@ -4,12 +4,12 @@
     align-items: center;
     border: solid;
     border-color: rgb(242, 244, 248);
+    background-color: #212830;
     border-radius: 10px;
     width: 110px;
-    height: 45px;
-    color: azure;
-    font-family: 'Solway', serif;
-    background: none;
+    height: 75px;
+    color: #FFF;
+    font-weight: medium;
 }
 
 .buscar:hover {

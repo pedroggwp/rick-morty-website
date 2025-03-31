@@ -78,15 +78,6 @@ export default function Home() {
               reviravoltas.
             </p>
           </div>
-
-          <div className={styles.description}>
-            <p>
-              Rick&Morty HUB oferece uma plataforma interativa onde você pode
-              acessar e consultar informações sobre os episódios, personagens e
-              locais que fazem parte dessa aventura maluca e cheia de
-              reviravoltas.
-            </p>
-          </div>
         </div>
         <div className={styles.rightContent}>
           <img

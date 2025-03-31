@@ -1,19 +1,18 @@
 .busca {
     display: flex;
     border: 2px solid #F2F4F8;
-    border-radius: 10px;
-    width: 100%;
-    height: 80%;
-    justify-content: space-evenly;
-    margin-right: 20px;
+    border-radius: 5px;
+    align-content: center;
+    height: 40px;
+    background-color: #3A404C;
+    color: #FFFFFF;
+    padding: 15px 0px;
 }
 
 .searchBar {
     background-color: transparent;
     border: none;
     outline: none;
-    width: 350px;
-    height: 45px;
     margin-left: 10px;
     font-family: 'Solway', serif;
 }
@@ -30,4 +29,9 @@ input {
     border: 1px solid white;
     padding: 8px;
     border-radius: 8px;
-}  
+}
+
+.lupa {
+    width: 40px;
+    height: 40px;
+}
