@@ -11,4 +11,16 @@
 
 .characterContainer {
   margin: var(--margin-default);
+  box-sizing: border-box;
+}
+
+.searchSet {
+  display: flex;
+  margin-right: 5%;
+  gap: 40px;
+}
+
+.resultText {
+  font-size: var(--font-medium);
+  font-weight: bold;
 }
