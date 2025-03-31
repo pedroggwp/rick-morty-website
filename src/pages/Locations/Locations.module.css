@@ -1,32 +1,21 @@
-.header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-left: 100px;
-}
-
 .locationsContainer {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
     gap: 1.5rem;
-    margin: 1.5rem;
+
 }
 
-.cont {
-    margin-left: 100px;
-}
 
 .filters{
     display: flex;
     flex-direction: row;
-    margin-left: 105px;
+   
     margin-top: 30px;
 }
 
 .selectionContainer {
     display: flex;
     gap: 2%;
-    margin-left: 100px;
 }
 
 .pageContainer {
