@@ -44,6 +44,8 @@ export const Locations = () => {
 
   return (
     <>
+
+    
       <div className={styles.pageContainer}>
         <div className={styles.header}>
           <SectionTitle
@@ -55,8 +57,13 @@ export const Locations = () => {
             description="Encontre os lugares da série por sua numeração ou nome."
           />
         </div>
+
+
         {error && <p className={styles.error}>{error}</p>}
         {loading && <p className={styles.loading}>Carregando...</p>}
+
+
+
         <div className={styles.selectionContainer}>
           <Selection
             items={["", "Dimension A", "Dimension B", "Dimension C"]}
@@ -71,7 +78,11 @@ export const Locations = () => {
             <SearchButton onClick={() => fetchData({ ...filters, name: query })} />
           </div>
         
+
         </div>
+
+
+        <span className={styles.resultText}>Resultados ({locations.length})</span>  
         <div className={styles.cont}>
           <div className={styles.locationsContainer}>
             {locations.map((loc) => (
