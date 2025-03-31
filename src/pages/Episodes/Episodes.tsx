@@ -52,6 +52,8 @@ export function Episodes() {
             description="Pesquise um episódio por sua numeração ou nome."
           />
         </div>
+
+
         <div className={styles.selectionContainer}>
         <Selection
           items={["", "S01", "S02", "S03", "S04", "S05"]}
@@ -67,6 +69,9 @@ export function Episodes() {
         
         {error && <p className={styles.error}>{error}</p>}
         {loading && <p className={styles.loading}>Carregando...</p>}
+
+        <span className={styles.resultText}>Resultados ({episodes.length})</span>
+
         <div className={styles.cont}>
           <div className={styles.episodesContainer}>
             {episodes.map((ep) => (

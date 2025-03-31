@@ -4,21 +4,26 @@
     gap: 1.5rem;
 
 }
-
-
-.filters{
-    display: flex;
-    flex-direction: row;
-   
-    margin-top: 30px;
-}
-
+    
 .selectionContainer {
     display: flex;
+    margin-top: 20px;
     gap: 2%;
+    
 }
 
 .pageContainer {
     margin: var(--margin-default);
+    box-sizing: border-box;
 }
   
+.resultText {
+    font-size: var(--font-medium);
+    font-weight: bold;
+  }
+
+.searchSet {
+    display: flex;
+    margin-right: 5%;
+    gap: 40px;
+}

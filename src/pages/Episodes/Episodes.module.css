@@ -19,3 +19,8 @@
 .pageContainer{
     margin: var(--margin-default);
 }
+
+.resultText {
+    font-size: var(--font-medium);
+    font-weight: bold;
+  }
