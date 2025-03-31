@@ -11,7 +11,7 @@ export const fetchCharacters = async (
     species?: string;
     gender?: string;
   } = {},
-  endpoint: string = "https://rickandmortyapi.com/api/character/?page=1"
+  endpoint: string = "https://rickandmortyapi.com/api/character?page=1&limit=100"
 ): Promise<ApiResponse<Character>> => {
   try {
     const { data } = await axios.get(endpoint, { params: filters });
