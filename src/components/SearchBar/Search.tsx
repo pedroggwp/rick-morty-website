@@ -17,7 +17,7 @@ export function Search({ placeholder = "Buscar...", query, setQuery }: SearchPro
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
             />
-            <img src={Lupa} alt="Ícone de busca" />
+            <img className={styles.lupa} src={Lupa} alt="Ícone de busca" />
         </div>
     );
 }

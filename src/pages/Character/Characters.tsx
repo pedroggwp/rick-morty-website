@@ -59,8 +59,6 @@ export const Characters = () => {
           arrowSide="left"
           description="Pesquise um episódio por sua numeração ou nome."
         />
-
-        
       </div>
 
       {error && <p className={styles.error}>{error}</p>}
@@ -93,13 +91,14 @@ export const Characters = () => {
             setFilters((prev) => ({ ...prev, gender: value }));
           }}
         />
+
         <div className={styles.searchSet}>
           <Search placeholder="Digite um personagem" query={query} setQuery={setQuery} />
           <SearchButton onClick={() => fetchData({ ...filters, name: query })} />
         </div>
       </div>
 
-      <span>Resultados ({characters.length})</span>
+      <span className={styles.resultText}>Resultados ({characters.length})</span>
 
       <div className={styles.cardsContainer}>
         {characters.map((char) => (
