@@ -19,6 +19,8 @@ type Filters = {
 
 export const Characters = () => {
   const [characters, setCharacters] = useState<Character[]>([]);
+  const [nextPageUrl, setNextPageUrl] = useState<string | null>("");
+
   const [filters, setFilters] = useState<Filters>({ name: "", status: "", species: "", gender: "" });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -28,14 +30,14 @@ export const Characters = () => {
   const [selectedGender, setSelectedGender] = useState("");
   const [query, setQuery] = useState("");
 
-
-  const fetchData = async (filters: Filters) => {
+  const fetchData = async (filters: Filters, endpoint?: string) => {
     setLoading(true);
     setError(null);
 
     try {
-      const charData = await fetchCharacters(filters);
+      const charData = await fetchCharacters(filters, endpoint);
       setCharacters(charData.results);
+      setNextPageUrl(charData.info.next);
     } catch (err) {
       setError("Erro ao carregar dados.");
       setCharacters([]);
@@ -47,6 +49,12 @@ export const Characters = () => {
   useEffect(() => {
     fetchData(filters);
   }, [filters]);
+
+  const handleNextPage = () => {
+    if (nextPageUrl) {
+      fetchData(filters, nextPageUrl);
+    }
+  };
 
   return (
     <div className={styles.characterContainer}>
@@ -93,12 +101,20 @@ export const Characters = () => {
         />
 
         <div className={styles.searchSet}>
-          <Search placeholder="Digite um personagem" query={query} setQuery={setQuery} />
-          <SearchButton onClick={() => fetchData({ ...filters, name: query })} />
+          <Search
+            placeholder="Digite um personagem"
+            query={query}
+            setQuery={setQuery}
+          />
+          <SearchButton
+            onClick={() => fetchData({ ...filters, name: query })}
+          />
         </div>
       </div>
 
-      <span className={styles.resultText}>Resultados ({characters.length})</span>
+      <span className={styles.resultText}>
+        Resultados ({characters.length})
+      </span>
 
       <div className={styles.cardsContainer}>
         {characters.map((char) => (
@@ -112,6 +128,12 @@ export const Characters = () => {
           />
         ))}
       </div>
+
+      {nextPageUrl ? (
+        <button onClick={handleNextPage}>Próxima Página</button>
+      ) : (
+        <p>Você chegou ao final dos resultados.</p>
+      )}
     </div>
-  );
-};
+  )
+}
