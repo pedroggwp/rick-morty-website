@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    box-sizing: border-box;
+    font-weight: bold;
+    color: #A7CFE7;
+    font-size: large;
+    gap: 2%;
+    margin-right: var(--margin-default);
+}

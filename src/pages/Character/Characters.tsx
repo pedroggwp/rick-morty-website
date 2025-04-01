@@ -9,6 +9,7 @@ import { Search } from "../../components/SearchBar/Search";
 import { SearchButton } from "../../components/SearchButton/SearchButton";
 import { fetchCharacters } from "../../service/ApiService";
 import { Character } from "../../types/Character";
+import { NextPageButton } from "../../components/NextPageButton/NextPageButton";
 
 type Filters = {
   name: string;
@@ -52,6 +53,10 @@ export const Characters = () => {
 
   const handleNextPage = () => {
     if (nextPageUrl) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
       fetchData(filters, nextPageUrl);
     }
   };
@@ -129,11 +134,13 @@ export const Characters = () => {
         ))}
       </div>
 
-      {nextPageUrl ? (
-        <button onClick={handleNextPage}>Próxima Página</button>
-      ) : (
-        <p>Você chegou ao final dos resultados.</p>
-      )}
+      <div className={styles.nextPageContainer}>
+        {nextPageUrl ? (
+          <NextPageButton onClick={handleNextPage} />
+        ) : (
+          <p>Você chegou ao final dos resultados.</p>
+        )}
+      </div>
     </div>
-  )
+  );
 }
