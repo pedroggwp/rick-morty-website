@@ -10,10 +10,12 @@ import { Selection } from "../../components/Selection/Selection";
 import { Search } from "../../components/SearchBar/Search";
 import { SearchButton } from "../../components/SearchButton/SearchButton";
 import { NextPageButton } from "../../components/NextPageButton/NextPageButton";
+import { PreviousPageButton } from "../../components/PreviousPageButton/PreviousPageButton";
 
 export const Locations = () => {
   const [locations, setLocations] = useState<Location[]>([]);
   const [nextPageUrl, setNextPageUrl] = useState<string | null>("");
+  const [prevPageUrl, setPrevPageUrl] = useState<string | null>("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [filters, setFilters] = useState({
@@ -33,6 +35,8 @@ export const Locations = () => {
       const locData = await fetchLocations(filters, endpoint);
       setLocations(locData.results);
       setNextPageUrl(locData.info.next);
+      setPrevPageUrl(locData.info.prev);
+
     } catch (err) {
       setError("Erro ao carregar dados.");
       setLocations([]);
@@ -52,6 +56,16 @@ export const Locations = () => {
         behavior: "smooth",
       });
       fetchData(filters, nextPageUrl);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (prevPageUrl) {
+      window.scrollTo({ 
+        top: 0, 
+        behavior: "smooth" 
+      });
+      fetchData(filters, prevPageUrl);
     }
   };
 
@@ -113,12 +127,9 @@ export const Locations = () => {
         </div>
       </div>
 
-      <div className={styles.nextPageContainer}>
-        {nextPageUrl ? (
-          <NextPageButton onClick={handleNextPage} />
-        ) : (
-          <p>Você chegou ao final dos resultados.</p>
-        )}
+      <div className={styles.paginationContainer}>
+        {prevPageUrl && <PreviousPageButton onClick={handlePreviousPage} />}
+        {nextPageUrl && <NextPageButton onClick={handleNextPage} />}
       </div>
     </>
   );

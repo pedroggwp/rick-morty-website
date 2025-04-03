@@ -9,10 +9,12 @@ import { fetchEpisodes } from "../../service/ApiService";
 import { InfoCard } from "../../components/InfoCard/InfoCard";
 import { Selection } from "../../components/Selection/Selection";
 import { NextPageButton } from "../../components/NextPageButton/NextPageButton";
+import { PreviousPageButton } from "../../components/PreviousPageButton/PreviousPageButton";
 
 export function Episodes() {
   const [episodes, setEpisodes] = useState<Episode[]>([]);
   const [nextPageUrl, setNextPageUrl] = useState<string | null>("");
+  const [prevPageUrl, setPrevPageUrl] = useState<string | null>("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [filters, setFilters] = useState({
@@ -30,6 +32,7 @@ export function Episodes() {
       const epData = await fetchEpisodes(filters, endpoint);
       setEpisodes(epData.results);
       setNextPageUrl(epData.info.next);
+      setPrevPageUrl(epData.info.prev);
     } catch (err) {
       setError("Erro ao carregar dados.");
       setEpisodes([]);
@@ -52,6 +55,15 @@ const handleNextPage = () => {
   }
 };
 
+const handlePreviousPage = () => {
+  if (prevPageUrl) {
+    window.scrollTo({ 
+      top: 0, 
+      behavior: "smooth" 
+    });
+    fetchData(filters, prevPageUrl);
+  }
+};
 
   return (
     <>
@@ -103,12 +115,9 @@ const handleNextPage = () => {
         </div>
       </div>
 
-      <div className={styles.nextPageContainer}>
-        {nextPageUrl ? (
-          <NextPageButton onClick={handleNextPage} />
-        ) : (
-          <p>Você chegou ao final dos resultados.</p>
-        )}
+      <div className={styles.paginationContainer}>
+        {prevPageUrl && <PreviousPageButton onClick={handlePreviousPage} />}
+        {nextPageUrl && <NextPageButton onClick={handleNextPage} />}
       </div>
     </>
   );
