@@ -1,8 +1,9 @@
 .locationsContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    box-sizing: border-box;
+    grid-template-columns: repeat(3, 1fr);
+    margin-right: 4rem;
     gap: 1.5rem;
-
 }
     
 .selectionContainer {

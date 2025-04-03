@@ -67,7 +67,7 @@ export const Locations = () => {
             altIcon="Rick Morty ícone"
             navigateTo={HOME_PATH}
             arrowSide="left"
-            description="Encontre os lugares da série por sua numeração ou nome."
+            description=""
           />
         </div>
 

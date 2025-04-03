@@ -1,9 +1,7 @@
 .sectionTitle {
   display: flex;
-  flex-direction: column;
   align-items: first baseline;
   justify-content: space-between;
-  margin-bottom: 1rem;
 }
 
 .leftSide {
