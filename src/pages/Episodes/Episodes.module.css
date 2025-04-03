@@ -1,8 +1,9 @@
 .episodesContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    box-sizing: border-box;
+    grid-template-columns: repeat(3, 1fr);
+    margin-right: 4rem;
     gap: 1.5rem;
-
 }
 
 .filters{
@@ -33,6 +34,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    padding: 20px 40px;
-  } 
+    width: 90%;
+    margin: 0 auto;
+} 

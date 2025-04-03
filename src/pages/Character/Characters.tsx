@@ -83,7 +83,7 @@ export const Characters = () => {
           altIcon="Rick Morty ícone"
           navigateTo={HOME_PATH}
           arrowSide="left"
-          description="Pesquise um episódio por sua numeração ou nome."
+          description=""
         />
       </div>
 

@@ -41,3 +41,7 @@
   gap: 1rem;
   margin: var(--margin-card);
 }
+
+.sectionTitle {
+  margin-left: var(--margin-card);
+}
