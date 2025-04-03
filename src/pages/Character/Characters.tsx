@@ -10,6 +10,7 @@ import { SearchButton } from "../../components/SearchButton/SearchButton";
 import { fetchCharacters } from "../../service/ApiService";
 import { Character } from "../../types/Character";
 import { NextPageButton } from "../../components/NextPageButton/NextPageButton";
+import { PreviousPageButton } from "../../components/PreviousPageButton/PreviousPageButton";
 
 type Filters = {
   name: string;
@@ -21,6 +22,7 @@ type Filters = {
 export const Characters = () => {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [nextPageUrl, setNextPageUrl] = useState<string | null>("");
+  const [prevPageUrl, setPrevPageUrl] = useState<string | null>("");
 
   const [filters, setFilters] = useState<Filters>({ name: "", status: "", species: "", gender: "" });
   const [loading, setLoading] = useState(false);
@@ -39,6 +41,7 @@ export const Characters = () => {
       const charData = await fetchCharacters(filters, endpoint);
       setCharacters(charData.results);
       setNextPageUrl(charData.info.next);
+      setPrevPageUrl(charData.info.prev);
     } catch (err) {
       setError("Erro ao carregar dados.");
       setCharacters([]);
@@ -58,6 +61,16 @@ export const Characters = () => {
         behavior: "smooth",
       });
       fetchData(filters, nextPageUrl);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (prevPageUrl) {
+      window.scrollTo({ 
+        top: 0, 
+        behavior: "smooth" 
+      });
+      fetchData(filters, prevPageUrl);
     }
   };
 
@@ -134,12 +147,9 @@ export const Characters = () => {
         ))}
       </div>
 
-      <div className={styles.nextPageContainer}>
-        {nextPageUrl ? (
-          <NextPageButton onClick={handleNextPage} />
-        ) : (
-          <p>Você chegou ao final dos resultados.</p>
-        )}
+      <div className={styles.paginationContainer}>
+        {prevPageUrl && <PreviousPageButton onClick={handlePreviousPage} />}
+        {nextPageUrl && <NextPageButton onClick={handleNextPage} />}
       </div>
     </div>
   );

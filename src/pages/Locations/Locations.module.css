@@ -21,7 +21,7 @@
 .resultText {
     font-size: var(--font-medium);
     font-weight: bold;
-  }
+}
 
 .searchSet {
     display: flex;
@@ -32,3 +32,12 @@
 .nextPageContainer {
     margin-left: 50px;
 }
+
+.paginationContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+  
