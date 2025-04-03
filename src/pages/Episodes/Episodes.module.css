@@ -23,4 +23,8 @@
 .resultText {
     font-size: var(--font-medium);
     font-weight: bold;
-  }
+}
+
+.nextPageContainer {
+    margin-left: 50px;
+}

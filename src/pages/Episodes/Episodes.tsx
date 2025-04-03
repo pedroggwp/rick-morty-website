@@ -8,9 +8,11 @@ import { Episode } from "../../types/Episode";
 import { fetchEpisodes } from "../../service/ApiService";
 import { InfoCard } from "../../components/InfoCard/InfoCard";
 import { Selection } from "../../components/Selection/Selection";
+import { NextPageButton } from "../../components/NextPageButton/NextPageButton";
 
 export function Episodes() {
   const [episodes, setEpisodes] = useState<Episode[]>([]);
+  const [nextPageUrl, setNextPageUrl] = useState<string | null>("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [filters, setFilters] = useState({
@@ -20,13 +22,14 @@ export function Episodes() {
   const [selectedSeason, setSelectedSeason] = useState("");
   const [query, setQuery] = useState("");
 
-  const fetchData = async (filters: { name: string; episode: string }) => {
+  const fetchData = async (filters: { name: string; episode: string }, endpoint?: string) => {
     setLoading(true);
     setError(null);
 
     try {
-      const epData = await fetchEpisodes(filters);
+      const epData = await fetchEpisodes(filters, endpoint);
       setEpisodes(epData.results);
+      setNextPageUrl(epData.info.next);
     } catch (err) {
       setError("Erro ao carregar dados.");
       setEpisodes([]);
@@ -38,6 +41,17 @@ export function Episodes() {
  useEffect(() => {
   fetchData(filters);
 }, [filters]);
+
+const handleNextPage = () => {
+  if (nextPageUrl) {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    fetchData(filters, nextPageUrl);
+  }
+};
+
 
   return (
     <>
@@ -87,6 +101,14 @@ export function Episodes() {
             ))}
           </div>
         </div>
+      </div>
+
+      <div className={styles.nextPageContainer}>
+        {nextPageUrl ? (
+          <NextPageButton onClick={handleNextPage} />
+        ) : (
+          <p>Você chegou ao final dos resultados.</p>
+        )}
       </div>
     </>
   );
