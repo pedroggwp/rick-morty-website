@@ -36,22 +36,21 @@ export function Episodes() {
     } finally {
       setLoading(false);
     }
-  };
-
- useEffect(() => {
-  fetchData(filters);
-}, [filters]);
-
-const handleNextPage = () => {
-  if (nextPageUrl) {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-    fetchData(filters, nextPageUrl);
   }
-};
 
+  useEffect(() => {
+    fetchData(filters);
+  }, [filters]);
+
+  const handleNextPage = () => {
+    if (nextPageUrl) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+      fetchData(filters, nextPageUrl);
+    }
+  }
 
   return (
     <>
@@ -63,10 +62,9 @@ const handleNextPage = () => {
             altIcon="Rick Morty ícone"
             navigateTo={HOME_PATH}
             arrowSide="left"
-            description="Pesquise um episódio por sua numeração ou nome."
+            description=""
           />
         </div>
-
 
         <div className={styles.selectionContainer}>
         <Selection

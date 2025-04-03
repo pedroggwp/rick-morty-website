@@ -87,14 +87,16 @@ export default function Home() {
         </div>
       </div>
 
-      <SectionTitle
-        title="Personagens"
-        iconUrl={RickIcon}
-        altIcon="Rick icon"
-        navigateTo={CHARACTER_PATH}
-        arrowSide="right"
-        description=""
-      />
+      <div className={styles.sectionTitle}>
+        <SectionTitle
+          title="Personagens"
+          iconUrl={RickIcon}
+          altIcon="Rick icon"
+          navigateTo={CHARACTER_PATH}
+          arrowSide="right"
+          description=""
+        />
+      </div>
 
       <div className={styles.cardsContainer}>
         {characters.map((char) => (
@@ -109,14 +111,16 @@ export default function Home() {
         ))}
       </div>
 
-      <SectionTitle
-        title="Episódios"
-        iconUrl={EpisodeIcon}
-        altIcon="Episódios icon"
-        navigateTo={EPISODES_PATH}
-        arrowSide="right"
-        description=""
-      />
+      <div className={styles.sectionTitle}>
+        <SectionTitle
+          title="Episódios"
+          iconUrl={EpisodeIcon}
+          altIcon="Episódios icon"
+          navigateTo={EPISODES_PATH}
+          arrowSide="right"
+          description=""
+        />
+      </div>
 
       <div className={styles.episodesContainer}>
         {episodes.map((ep) => (
@@ -131,26 +135,28 @@ export default function Home() {
         ))}
       </div>
 
-      <SectionTitle
-        title="Lugares"
-        iconUrl={PlacesIcon}
-        altIcon="Lugares icon"
-        navigateTo={PLACES_PATH}
-        arrowSide="right"
-        description=""
-      />
+      <div className={styles.sectionTitle}>
+        <SectionTitle
+          title="Lugares"
+          iconUrl={PlacesIcon}
+          altIcon="Lugares icon"
+          navigateTo={PLACES_PATH}
+          arrowSide="right"
+          description=""
+        />
+      </div>
 
       <div className={styles.episodesContainer}>
         {locations.map((loc) => (
-            <InfoCard
-              title={loc.name}
-              firstTitle="Dimension"
-              firstInfo={loc.dimension}
-              secTitle="type"
-              secInfo={loc.type}
-              id={loc.id}
-            />
-          ))}
+          <InfoCard
+            title={loc.name}
+            firstTitle="Dimension"
+            firstInfo={loc.dimension}
+            secTitle="type"
+            secInfo={loc.type}
+            id={loc.id}
+          />
+        ))}
       </div>
       <Footer />
     </>
