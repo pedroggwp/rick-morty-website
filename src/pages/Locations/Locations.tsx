@@ -9,9 +9,11 @@ import { InfoCard } from "../../components/InfoCard/InfoCard";
 import { Selection } from "../../components/Selection/Selection";
 import { Search } from "../../components/SearchBar/Search";
 import { SearchButton } from "../../components/SearchButton/SearchButton";
+import { NextPageButton } from "../../components/NextPageButton/NextPageButton";
 
 export const Locations = () => {
   const [locations, setLocations] = useState<Location[]>([]);
+  const [nextPageUrl, setNextPageUrl] = useState<string | null>("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [filters, setFilters] = useState({
@@ -23,13 +25,14 @@ export const Locations = () => {
   const [query, setQuery] = useState("");
 
 
-  const fetchData = async (filters: { name: string; dimension: string; type: string }) => {
+  const fetchData = async (filters: { name: string; dimension: string; type: string }, endpoint?: string) => {
     setLoading(true);
     setError(null);
 
     try {
-      const locData = await fetchLocations(filters);
+      const locData = await fetchLocations(filters, endpoint);
       setLocations(locData.results);
+      setNextPageUrl(locData.info.next);
     } catch (err) {
       setError("Erro ao carregar dados.");
       setLocations([]);
@@ -41,6 +44,16 @@ export const Locations = () => {
   useEffect(() => {
     fetchData(filters);
   }, [filters]);
+
+  const handleNextPage = () => {
+    if (nextPageUrl) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+      fetchData(filters, nextPageUrl);
+    }
+  };
 
   return (
     <>
@@ -98,6 +111,14 @@ export const Locations = () => {
             ))}
           </div>
         </div>
+      </div>
+
+      <div className={styles.nextPageContainer}>
+        {nextPageUrl ? (
+          <NextPageButton onClick={handleNextPage} />
+        ) : (
+          <p>Você chegou ao final dos resultados.</p>
+        )}
       </div>
     </>
   );
