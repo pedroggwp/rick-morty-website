@@ -11,7 +11,7 @@ The information is fetched asynchronously through the public API: https://rickan
 
 - **Libs**: React.js
 
-- **Hosting Service**: (?)
+- **Hosting Service**: Render - https://rick-morty-website.onrender.com/
 
 
 ## Contributors
